@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://aws-1-ap-northeast-1.pooler.supabase.com:6543/postgres?sslmode=require&pgbouncer=true&prepareThreshold=0&preferQueryMode=simple
-    username: postgres.ytgirhneicrinjhnflpl
-    password: "@a181994@Csb"
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
     driver-class-name: org.postgresql.Driver
     hikari:
       auto-commit: false
@@ -20,8 +20,8 @@ spring:
             non_contextual_creation: true
 
 server:
-  port: 8080
+  port: ${PORT:8080}
 
 jwt:
-  secret: VYOgLsEJ3XwlMSdWSzXw/5qkN2uYsQm+hZiAq0wCLt4=
-  expiration: 86400000   # 1 day in ms
+  secret: ${JWT_SECRET}
+  expiration: ${JWT_EXPIRATION:86400000}
